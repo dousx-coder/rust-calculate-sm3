@@ -1,6 +1,9 @@
+mod arg;
+mod calculate;
+
+use crate::arg::args::Args;
+use crate::calculate::sm3::calculate_sm3;
 use clap::Parser;
-use rust_calculate_sm3::arg::args::Args;
-use rust_calculate_sm3::calculate::sm3::calculate_sm3;
 use std::time::Instant;
 fn main() {
     let instant = Instant::now();
