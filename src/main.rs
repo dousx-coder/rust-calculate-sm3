@@ -11,8 +11,13 @@ fn main() {
     let file = &args.file;
     match calculate_sm3(file) {
         Ok(sm3) => {
-            let elapsed = instant.elapsed().as_millis();
-            println!("Calculate SM3 Hash elapsed: {elapsed} ms");
+            let millis = instant.elapsed().as_millis();
+            if millis < 60000 {
+                println!("Calculate SM3 Hash elapsed: {millis} ms");
+            } else {
+                let secs = millis / 1000;
+                println!("Calculate SM3 Hash elapsed: {secs} s");
+            }
             println!("SM3 Hash: {sm3}")
         }
         Err(e) => {
